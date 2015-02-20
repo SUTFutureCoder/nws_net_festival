@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--
+@author SUTACM-*Chen
+@project https://github.com/SUTFutureCoder
+-->
+<html>
+    <head>
+        <title>沈阳工业大学网络文化节</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/jquery.fullPage.css">
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/jquery.fullPage.min.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
+        <style>
+            .section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff;}
+            .section2 p { position: relative; left: -120%;}
+            .section3 p { position: relative; bottom: -120%;}
+            .section4 p { display: none;}
+            #section3-bg,#section4-bg,#section4-cover,#section5-bg { position: absolute; top: 0%; left: 0%; height: 100%; width: 100%}
+                
+            #section3-icon {position: relative; left: -80%;}
+            #section3-poster { position: relative; right: -30%; top: -40%; width: 100%; color: red; font-size: 60px;}
+            #section3-buttongroup { position: relative; right: -40%; bottom: 20%; color: red;}
+            
+            #section4-cover { display: none;}
+            #section4-poster { position: absolute; left: 0%; top: 40%; width: 100%; display: none; color: white; font-size: 80px;}
+            #section4-buttongroup { position: absolute; left: 40%; bottom: 30%; display: none; }
+            
+            #section5-icon { position: relative; top: -120%; left: -120%}
+            #section5-poster { position: absolute; right: 20%; top: 40%; display: none; color: black; font-size: 20px;}
+            #section5-buttongroup { position: relative; bottom: 10%; right: -60%}
+        </style>
+        <script>
+            $(function(){
+                $("#main").fullpage({
+                    sectionsColor: ['#4BBFC3'],
+                    'navigation': true,
+                    afterLoad: function (anchorLink, index){
+                        if (index == 2){
+                            $('.section2').find('p').delay(500).animate({
+                                left: '0'
+                            }, 1500, 'easeOutExpo');
+                        }
+                        
+                        if (index == 3){
+                            $('#section3-icon').delay(100).animate({
+                                left: '-20%'
+                            }, 800, 'easeOutExpo');
+                            
+                            $('#section3-poster').delay(100).animate({
+                                right: '-10%',
+                                top: '-40%'
+                            }, 800, 'easeOutExpo');
+                            
+                            $('#section3-buttongroup').delay(100).animate({
+                                right: '-20%',
+                                bottom: '20%'
+                            }, 800, 'easeOutExpo');
+                        }
+                        
+                        if (index == 4){              
+                            $('#section4-cover').fadeIn(2000);
+                            $("#section4-poster").delay(2000).fadeIn(800);
+                            $('#section4-buttongroup').delay(2500).fadeIn(800);
+                        }
+                        
+                        if (index == 5){
+                            $('#section5-icon').delay(300).animate({
+                                left: '-25%',
+                                top: [50, 'easeOutBounce'] 
+                            }, 1500, 'easeOutExpo');
+                            
+                            $("#section5-poster").delay(2000).fadeIn(800);
+                            
+                            $('#section5-buttongroup').delay(2500).animate({
+                                right: '-30%'
+                            }, 1500, 'easeOutExpo')
+                        }
+                    },
+                    onLeave: function (index, direction){
+                        if (index == '2'){
+                            $('.section2').find('p').delay(500).animate({
+                                left: '-120%'
+                            }, 1500, 'easeOutExpo');
+                        }
+                        
+                        if (index == '3'){
+                            $('#section3-icon').delay(100).animate({
+                                left: '-80%'
+                            }, 800, 'easeOutExpo');
+                            
+                            $('#section3-poster').delay(100).animate({
+                                right: '-30%',
+                                top: '-40%'
+                            }, 800, 'easeOutExpo');
+                            
+                            $('#section3-buttongroup').delay(100).animate({
+                                right: '-40%',
+                                bottom: '20%'
+                            }, 800, 'easeOutExpo');
+                        }
+                        
+                        if (index == '4'){
+                            $('.section4').find('#section4-cover').fadeOut(1000);
+                            $("#section4-poster").delay(1000).fadeOut(400);
+                            $('#section4-buttongroup').delay(1400).fadeOut(400);
+                        }
+                        
+                        
+                        if (index == 5){
+                            $('#section5-icon').delay(1).animate({
+                                left: '-120%',
+                                top: '-120%'
+                            }, 1500, 'easeOutExpo');
+                            
+                            $("#section5-poster").delay(50).fadeOut(800);
+                            
+                            $('#section5-buttongroup').delay(1500).animate({
+                                right: '-60%'
+                            }, 1500, 'easeOutExpo')
+                        }
+                    }
+                });
+            });
+        </script>
+        <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    <div id="main">
+	<div class="section section1">
+            <p>放宣传PV</p>
+	</div>
+	<div class="section section2">
+            <h3>第二屏</h3>
+            <p>滚动到第二屏后的回调函数执行的效果</p>
+	</div>
+	<div class="section section3">
+            <img id='section3-bg' src="images/3-back.jpeg">
+            <img id='section3-icon' src="images/3-icon-red.png">
+            <p id='section3-poster'>网络安全，迫在眉睫！</p>
+            <div id="section3-buttongroup">
+                <button type="button" class="btn btn-lg btn-info">参赛指南</button>
+                <button type="button" class="btn btn-lg btn-success">参加比赛</button>
+            </div>
+	</div>
+	<div class="section section4">
+            <img id='section4-bg' src="images/4-back.jpg">
+            <img id='section4-cover' src="images/4.jpg">
+            <p id='section4-poster'>渲染您的作品！渲染您的人生！</p>
+            <div id="section4-buttongroup">
+                <button type="button" class="btn btn-lg btn-info">参赛指南</button>
+                <button type="button" class="btn btn-lg btn-success">报名</button>
+            </div>
+	</div>
+	<div class="section section5">
+            <img id='section5-bg' src="images/5-back.jpg">
+            <img id='section5-icon' src="images/5-icon.png">            
+            <p id='section5-poster'>您会用PPT或WPS吗？<br/>您懂得文案、设计、图标、动画吗？拿出你的创意，放飞你的思维！</p>
+            <div id="section5-buttongroup">
+                <button type="button" class="btn btn-lg btn-info">参赛指南</button>
+                <button type="button" class="btn btn-lg btn-success">报名</button>
+            </div>
+	</div>
+    </div>
+    </body>
+</html>
