@@ -19,7 +19,7 @@
             #section2-poster {position: absolute; display: none; top: 10%; left: 10%; width: 100%}
             #section2-buttongroup { position: absolute; display: none; top: 30%; left: 50%; }
              
-            #section3-icon {position: relative; left: -80%;}
+            #section3-icon {position: relative; left: -80%; width: 20%;}
             #section3-poster { position: relative; right: -30%; top: -40%; width: 100%; color: red; font-size: 60px;}
             #section3-buttongroup { position: relative; right: -40%; bottom: 20%; color: red;}
             
@@ -27,7 +27,7 @@
             #section4-poster { position: absolute; left: 0%; top: 40%; width: 100%; display: none; color: white; font-size: 80px;}
             #section4-buttongroup { position: absolute; left: 40%; bottom: 30%; display: none; }
             
-            #section5-icon { position: relative; top: -120%; left: -120%}
+            #section5-icon { position: relative; top: -120%; left: -120%;}
             #section5-poster { position: absolute; right: 20%; top: 40%; display: none; color: black; font-size: 20px;}
             #section5-buttongroup { position: relative; bottom: 10%; right: -60%}
             
@@ -44,6 +44,31 @@
             #section7-code { display: none; position: absolute; bottom: 10%; left: 10%;}
             #section7-code .cursor{ display: inline-block; background: #565c61; width: 0.6em; height: 1em; text-align: center;}
             #section7-buttongroup { position: relative; right: -60%; bottom: -200%;}
+            
+            /* for 980px or less */
+            @media screen and (max-width: 980px){
+                #section2-poster {position: absolute; display: none; top: 10%; left: 10%; width: 80%; font-size: 30px;}
+                #section2-buttongroup { position: absolute; display: none; top: 30%; left: 30%; }
+                
+                #section3-icon {position: relative;display: none; left: -80%; width: 20%;}
+                #section3-poster { position: relative; right: -30%; top: -40%; width: 100%; font-size: 25px;}
+                #section3-buttongroup { position: relative; right: -40%; bottom: 20%;}
+                
+                #section4-cover { display: none;}
+                #section4-poster { position: absolute; left: 0%; top: 40%; width: 100%; display: none; color: white; font-size: 30px;}
+                #section4-buttongroup { position: absolute; left: 20%; bottom: 30%; display: none; }
+                
+                #section5-icon { position: relative; top: -120%; left: -120%; width: 20%;}
+                #section5-poster { position: absolute; right: 20%; top: 40%; display: none; color: black; text-align: right;font-size: 20px;}
+                #section5-buttongroup { position: relative; bottom: -80%; right: -20%}
+                
+                #section6-typer { position: absolute; top: 20%; left: 5%; width: 95%; font-size: 20px;}
+                #section6-buttongroup { position: absolute; top: 40%; left: 20%;}
+                #section6-buttongroup-left {display: none;}
+                #section6-buttongroup-right {display: none;}
+                
+                #section7-buttongroup { position: relative; right: -20%; bottom: -300%;}
+            }
         </style>
         <script>
             //打字机指示器
@@ -71,7 +96,7 @@
                             }, 800, 'easeOutExpo');
                             
                             $('#section3-buttongroup').animate({
-                                right: '-20%'
+                                right: '-10%'
                             }, 800, 'easeOutExpo');
                         }
                         
@@ -90,7 +115,7 @@
                             $("#section5-poster").delay(2000).fadeIn(800);
                             
                             $('#section5-buttongroup').delay(2500).animate({
-                                right: '-30%'
+                                right: '-20%'
                             }, 1500, 'easeOutExpo');
                         }
                         
@@ -108,17 +133,9 @@
                         }
                         
                         if (index == 7){
-                            $('#section7-code').css('display', 'inline');
-                            if (!trigger){                                
-                                $("#section7-code").ticker({
-                                        cursorList:  " ",
-                                        rate:        100,
-                                        delay:       0
-                                }).trigger("play").trigger("stop");                            
-                            }
-                            trigger = 1;
+                            $('#section7-code').css('display', 'inline');                            
                             $('#section7-buttongroup').delay(200).animate({
-                                right: '-30%'
+                                right: '-20%'
                             }, 1500, 'easeOutExpo');
                         }
                     },
@@ -158,7 +175,7 @@
                             $("#section5-poster").delay(50).fadeOut(800);
                             
                             $('#section5-buttongroup').delay(1500).animate({
-                                right: '-60%'
+                                right: '-20%'
                             }, 1500, 'easeOutExpo');
                         }
                         
@@ -174,7 +191,7 @@
                             //重新计算背景
                             pic_id = 1 + Math.round(Math.random() * 14);
                             $("#section7-bg").fadeOut(400);
-                            $('#section7-bg').prop("src", "images/7-back" + pic_id + ".jpg");
+                            $('#section7-bg').prop("src", "http://nws.oss-cn-qingdao.aliyuncs.com/7-back" + pic_id + ".jpg");
                             $("#section7-bg").delay(400).fadeIn(100);                            
                         }
                     }
@@ -192,7 +209,7 @@
             <p>主题页+放宣传PV</p>
 	</div>
 	<div class="section section2">
-            <img id='section2-bg' src="images/2-back.jpg">
+            <img id='section2-bg' src="http://nws.oss-cn-qingdao.aliyuncs.com/2-back.jpg">
             <p id="section2-poster">办公室最全理论知识，检验自己的时候到了！</p>
             <div id="section2-buttongroup">
                 <button type="button" class="btn btn-lg btn-info">参赛指南</button>
@@ -200,8 +217,8 @@
             </div>
 	</div>
 	<div class="section section3">
-            <img id='section3-bg' src="images/3-back.jpeg">
-            <img id='section3-icon' src="images/3-icon-red.png">
+            <img id='section3-bg' src="http://nws.oss-cn-qingdao.aliyuncs.com/3-back.jpeg">
+            <img id='section3-icon' src="http://nws.oss-cn-qingdao.aliyuncs.com/3-icon-red.png">
             <p id='section3-poster'>网络安全，迫在眉睫！</p>
             <div id="section3-buttongroup">
                 <button type="button" class="btn btn-lg btn-info">参赛指南</button>
@@ -209,8 +226,8 @@
             </div>
 	</div>
 	<div class="section section4">
-            <img id='section4-bg' src="images/4-back.jpg">
-            <img id='section4-cover' src="images/4.jpg">
+            <img id='section4-bg' src="http://nws.oss-cn-qingdao.aliyuncs.com/4-back.jpg">
+            <img id='section4-cover' src="http://nws.oss-cn-qingdao.aliyuncs.com/4.jpg">
             <p id='section4-poster'>渲染您的作品！渲染您的人生！</p>
             <div id="section4-buttongroup">
                 <button type="button" class="btn btn-lg btn-info">参赛指南</button>
@@ -218,8 +235,8 @@
             </div>
 	</div>
 	<div class="section section5">
-            <img id='section5-bg' src="images/5-back.jpg">
-            <img id='section5-icon' src="images/5-icon.png">            
+            <img id='section5-bg' src="http://nws.oss-cn-qingdao.aliyuncs.com/5-back.jpg">
+            <img id='section5-icon' src="http://nws.oss-cn-qingdao.aliyuncs.com/5-icon.png">            
             <p id='section5-poster'>您会用PPT或WPS吗？<br/>您懂得文案、设计、图标、动画吗？拿出你的创意，放飞你的思维！</p>
             <div id="section5-buttongroup">
                 <button type="button" class="btn btn-lg btn-info">参赛指南</button>
@@ -227,7 +244,7 @@
             </div>
 	</div>
         <div class="section section6">
-            <img id='section6-bg' src="images/6-back.jpg">
+            <img id='section6-bg' src="http://nws.oss-cn-qingdao.aliyuncs.com/6-back.jpg">
             <div id="section6-typer">
                 <p id='section6-poster'>每双眼睛都有一个不同的世界。以你的独特视角，【主题】</p>
             </div>
@@ -235,14 +252,14 @@
                 <button type="button" id="section6-buttongroup-left" class="btn btn-lg btn-info">参赛指南</button>
                 <button type="button" id="section6-buttongroup-right" class="btn btn-lg btn-success">报名</button>
             </div>
-            <img id="section6-bottom0" src="images/6-bottom0.jpg">
-            <img id="section6-bottom1" src="images/6-bottom1.jpg">                
-            <img id="section6-bottom2" src="images/6-bottom2.jpg">
-            <img id='section6-pointer' src="images/6-pointer.png">
+            <img id="section6-bottom0" src="http://nws.oss-cn-qingdao.aliyuncs.com/6-bottom0.jpg">
+            <img id="section6-bottom1" src="http://nws.oss-cn-qingdao.aliyuncs.com/6-bottom1.jpg">                
+            <img id="section6-bottom2" src="http://nws.oss-cn-qingdao.aliyuncs.com/6-bottom2.jpg">
+            <img id='section6-pointer' src="http://nws.oss-cn-qingdao.aliyuncs.com/6-pointer.png">
 	</div>
 	<div class="section section7">
             <div id='section7-code'>
-                <pre style="text-align: left; font-size: 20px" id='section7-code-typer'><p>&lt;html&gt;</p><p>&lt;body&gt;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;用您的文字、程序、音乐、图片和动画，汇集成【主题】&lt;/p&gt;</p><p>&lt;/body&gt;</p><p>&lt;/html&gt;</p></pre>
+                <pre style="text-align: left; font-size: 20px" ><p>&lt;html&gt;</p><p>&lt;body&gt;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;用您的文字、程序、音乐、图片和动画，汇集成【主题】&lt;/p&gt;</p><p>&lt;/body&gt;</p><p>&lt;/html&gt;</p></pre>
             </div>
             <div id="section7-buttongroup">
                 <button type="button" class="btn btn-lg btn-info">参赛指南</button>
